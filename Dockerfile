@@ -1,8 +1,7 @@
 FROM php:7.2-fpm-alpine3.11
 
-RUN apk add --no-cache libpng libpng-dev --virtual .build-deps && docker-php-ext-install gd \
+RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd \
 && docker-php-ext-install opcache pdo_mysql \
-&& apk del .build-deps \
 # Add default php.ini file
 && cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
 # install xdebug
