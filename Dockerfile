@@ -1,6 +1,9 @@
 FROM php:7.2-fpm-alpine3.11
 
-RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd \
+# install gd
+RUN apk add --no-cache libpng libpng-dev && \
+    docker-php-ext-install gd \
+# install some other php extension we need
 && docker-php-ext-install opcache pdo_mysql \
 # add default php.ini file
 && cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
@@ -10,7 +13,7 @@ RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd \
 && docker-php-ext-enable xdebug \
 && apk del .build-deps \
 # install drush launcher
-curl -fsSL -o /usr/local/bin/drush "https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_VERSION/drush.phar" && \
+&& curl -fsSL -o /usr/local/bin/drush "https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_VERSION/drush.phar" && \
     chmod +x /usr/local/bin/drush \
 # install drupal console
 && curl https://drupalconsole.com/installer -L -o drupal.phar && \
