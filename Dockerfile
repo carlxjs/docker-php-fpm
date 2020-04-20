@@ -12,4 +12,6 @@ RUN apk add --no-cache libpng libpng-dev && docker-php-ext-install gd \
 # install composer
 && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
 # install drush
-&& composer global require drush/drush
+&& composer global require drush/drush \
+# add composer bin in ~/.profile
+&& echo "export PATH=$PATH:~/.composer/vendor/bin" >> ~/.profile
