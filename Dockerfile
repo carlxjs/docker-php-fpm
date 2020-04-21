@@ -23,7 +23,7 @@ RUN apk add --no-cache libpng libpng-dev && \
 # install composer
 && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 # use composer install drush global
-&& composer global require drush/drush \
+&& composer global require drush/drush:^10.2 \
 $$ composer clearcache \
 # add composer bin in ~/.profile
 && echo "export PATH=~/.composer/vendor/bin:$PATH" >> ~/.profile \
