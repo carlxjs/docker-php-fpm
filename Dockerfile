@@ -13,8 +13,9 @@ RUN apk add --no-cache libpng libpng-dev && \
 && docker-php-ext-enable xdebug \
 && apk del .build-deps \
 # install drush launcher
-&& curl -fsSL -o /usr/local/bin/drush "https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_VERSION/drush.phar" && \
-    chmod +x /usr/local/bin/drush \
+&& curl -OL https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
+    chmod +x drush.phar && \
+    mv drush.phar /usr/local/bin/drush \
 # install drupal console
 && curl https://drupalconsole.com/installer -L -o drupal.phar && \
     mv drupal.phar /usr/local/bin/drupal && \
