@@ -21,7 +21,7 @@ RUN apk add --no-cache libpng libpng-dev && \
     mv drupal.phar /usr/local/bin/drupal && \
     chmod +x /usr/local/bin/drupal \
 # install composer
-&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
+&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 # use composer install drush global
 && composer global require drush/drush \
 $$ composer clearcache \
