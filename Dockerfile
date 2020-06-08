@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine3.11
+FROM php:7.4.6-fpm
 
 # install gd
 RUN apk add --no-cache libpng libpng-dev && \
