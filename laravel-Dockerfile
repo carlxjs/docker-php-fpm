@@ -6,7 +6,7 @@ RUN apk add --no-cache libpng libpng-dev && \
 # install some other php extension we need
 && docker-php-ext-install opcache pdo_mysql \
 # add default php.ini file
-&& cp /usr/local/etc/php/php.ini-product /usr/local/etc/php/php.ini \
+&& cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
 # install composer
 && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 # install git
