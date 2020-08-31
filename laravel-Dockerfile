@@ -10,4 +10,6 @@ RUN apk add --no-cache libpng libpng-dev && \
 # install composer
 && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 # install git
-&& apk add --no-cache git
+&& apk add --no-cache git \
+# install node or npm
+&& apk add --no-cache npm
