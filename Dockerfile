@@ -27,5 +27,5 @@ RUN apk add --no-cache libpng libpng-dev && \
 && composer clearcache \
 # add composer bin in ~/.profile
 && echo "export PATH=~/.composer/vendor/bin:$PATH" >> ~/.profile \
-# install mariadb client for used drush
+# install mariadb client for using drush
 && apk add --no-cache mariadb-client
